@@ -1,0 +1,67 @@
+/* Global reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Ensure main takes up the full viewport height */
+.main {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden; /* Prevents scrollbars from appearing */
+    margin: 0; /* Ensures no margin is added */
+    padding: 0; /* Ensures no padding is added */
+  }  
+
+
+ video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transform: translate(-50%, -50%);
+    z-index: -1; 
+} 
+
+
+.wrapper{
+    position: absolute;
+    width:100%;
+    height:100%;
+    top:0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 100px;
+}
+.logo-app{
+    padding-bottom: 20px;
+}
+.logo-text{
+    padding-bottom: 20px;
+    text-align: center;
+}
+/* h1{
+ position: absolute;
+ width:100%;
+ height:100%;
+ top:0;
+ display: flex;
+ flex-direction: column;
+ justify-content: center;
+ align-items: center;
+} */
+/* .wrapper{
+    position: absolute;
+    width:100%;
+    height:100%;
+    top:0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+   } */
