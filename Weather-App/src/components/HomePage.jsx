@@ -1,18 +1,36 @@
-// HomePage layout component//
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./HomePage.css";
 import cold from "../assets/background-images/winter.jpg";
 import sunny from "../assets/background-images/sunny.jpg";
 import partlycloudy from "../assets/background-images/partlycloudy.jpg";
 import Description from "./Description";
+import { getFormattedWeatherData } from "../weatheService";
+import Sidebar from "./Sidebar";
 
 const HomePage = () => {
+    const [weatherData, setWeatherData] = useState(null);
+    const [error, setError] = useState(null);
+
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+                const data = await getFormattedWeatherData('paris');
+                setWeatherData(data);
+            } catch (error) {
+                setError(error);
+                console.error('Error fetching weather data:', error);
+            }
+        };
+
+        fetchData();
+    }, []);
+
     return ( 
-        <div className="home-wrapper" style={{backgroundImage:`url(${cold})`}}>
-            <div className="sidebar"><p>Hello</p></div>
+        <div className="home-wrapper" style={{ backgroundImage: `url(${cold})` }}>
+            <div className="container-sidebar"><Sidebar/></div>
             <div className="body">
                 <div className="search-temp">
-                <div className="container">
+                    <div className="container">
                         <div className="section section__inputs">
                             <input type="text" name="city" placeholder="Enter City"/>
                             <button>°F</button>
@@ -32,11 +50,11 @@ const HomePage = () => {
                     </div>
                 </div>
                 <div className="description-cards">
-                     <Description/>
+                    <Description/>
                 </div>
             </div>
         </div>
-     );
+    );
 }
- 
+
 export default HomePage;

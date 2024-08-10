@@ -1,0 +1,31 @@
+.sidebar {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: transparent;
+    width: 60px;
+    height: 100%;
+    padding: 20px;
+    box-shadow: 2px 0 5px rgba(0,0,0,0.2);
+}
+
+.sidebar__button {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.sidebar__button span {
+    margin-top: 5px;
+    font-size: 0.75rem;
+    color: #333;
+}
+@media (max-width: 600px) {
+   .sidebar{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    width:100%;
+   }
+}
