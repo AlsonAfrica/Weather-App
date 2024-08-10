@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './LogInPage.css';
-import { TextField, Button, Typography, Container, Box, FormControl, InputLabel, InputAdornment, IconButton } from '@mui/material';
+import { TextField, Button, Typography, Container, Box, FormControl, InputLabel, InputAdornment, IconButton, Dialog, DialogTitle, DialogContent, DialogActions } from '@mui/material';
 import Visibility from '@mui/icons-material/Visibility';
 import VisibilityOff from '@mui/icons-material/VisibilityOff';
 
@@ -12,6 +12,13 @@ const AuthForm = () => {
     password: '',
     confirmPassword: ''
   });
+  const [openDialog, setOpenDialog] = useState(false);
+  const [acceptedTerms, setAcceptedTerms] = useState(false);
+
+  useEffect(() => {
+   
+    setOpenDialog(true);
+  }, []);
 
   const handleChange = (e) => {
     setFormData({
@@ -26,6 +33,10 @@ const AuthForm = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    if (!acceptedTerms) {
+      setOpenDialog(true);
+      return;
+    }
     if (isRegistering) {
       if (formData.password !== formData.confirmPassword) {
         alert('Passwords do not match!');
@@ -37,6 +48,16 @@ const AuthForm = () => {
       // Handle login logic
       console.log('Logging in:', formData);
     }
+  };
+
+  const handleAcceptTerms = () => {
+    setAcceptedTerms(true);
+    setOpenDialog(false);
+  };
+
+  const handleDeclineTerms = () => {
+    setAcceptedTerms(false);
+    setOpenDialog(false);
   };
 
   return (
@@ -54,7 +75,6 @@ const AuthForm = () => {
             boxShadow: 3,
             borderRadius: 2,
             backgroundColor: 'white',
-            // margin:50
           }}
         >
           <Typography component="h1" variant="h5">
@@ -143,10 +163,29 @@ const AuthForm = () => {
           </Box>
         </Box>
       </Container>
+
+      {/* Dialog for Privacy Terms */}
+      <Dialog
+        open={openDialog}
+        onClose={handleDeclineTerms}
+      >
+        <DialogTitle>Privacy and Data Protection</DialogTitle>
+        <DialogContent>
+          <Typography>
+            By using this application, you agree to the protection of your data and privacy. Please review our privacy policy to understand how we handle your information.
+          </Typography>
+        </DialogContent>
+        <DialogActions>
+          <Button onClick={handleDeclineTerms} color="secondary">
+            Decline
+          </Button>
+          <Button onClick={handleAcceptTerms} color="primary">
+            Accept
+          </Button>
+        </DialogActions>
+      </Dialog>
     </div>
   );
 };
 
 export default AuthForm;
-
-     
