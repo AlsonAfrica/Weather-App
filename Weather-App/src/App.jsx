@@ -4,6 +4,7 @@ import viteLogo from '/vite.svg'
 import './App.css'
 import AuthForm from './components/LoginPage'
 import Backgroundvideo from './components/videobg'
+import HomePage from './components/HomePage'
 
 
 function App() {
@@ -12,7 +13,8 @@ function App() {
   return (
     <>
        {/* <AuthForm/> */}
-       <Backgroundvideo/>
+       {/* <Backgroundvideo/> */}
+       <HomePage/>
   
     </>
   )
