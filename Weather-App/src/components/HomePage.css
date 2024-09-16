@@ -1,155 +1,21 @@
-/* Styling Homelayout and components */
-.home-wrapper{
-    margin: 0;
-    padding: 0;
-    display: flex;
-    box-sizing: border-box;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    /* background styling from inline home-wrapper */
-    width:100%;
-    height:100vh;
-    background-position: center;
-    background-size: cover;
-    overflow-x: hidden;
-
-}
-.container-sidebar{
-    background-color: blueviolet;
-    width:5%;
-    height:100vh;
-
-}
-
-.body{
-    /* background-color: rgb(150, 226, 43); */
-    width:95%;
-    height:100vh;
-    display: flex;
-    flex-direction: column;
-}
-.search-temp{
-    /* background-color: aqua; */
-    height:60%;
-}
-.description-cards{
-    display: flex;
-    flex-direction: column;
-    background-color: aquamarine;
-    height:40%;
-}
-
-
-:root{
-    --section-overlay:rgba(0,0,0,0.7);
-    --background-overlay:rgba(0,0,0,0,2);
-}
-/* overlay did not work: blurs up the image much more like created opacity */
-/* .overlay{
-    width:100%;
-    height:100vh;
-    background-color: var(--background-overlay);
-} */
-
-.container{
-    /* max-width: ; */
-    margin: auto;
-    height:100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-direction: column;
-    padding:1rem;
-}
-
-/* top */
-.section{
-    width:100%;
-    padding:1rem;
-    border-radius: 0.4rem;
-    color:white;
-}
-
-.section__inputs, .section__temperature{
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    background-color: var(--section-overlay);
-}
-
-.section__inputs>input{
-    border:0.8px solid white;
-    border-radius: 0.4rem;
-    background-color: transparent;
-    color:white;
-    padding:0.5rem;
-    font-size:20px;
-    font-weight: 200;
-     transition: background-color 0.3s ease; 
-}
-.section__inputs>input:focus{
-outline:none
-}
-.section__inputs>button{
-    padding:10px 50px;
-    border:none;
-    border-radius: 00.4rem;
-    font-size:20px;
-    font-weight: 500;
-    background-color: bisque;
-    animation: float 3s ease-in-out infinite;
-}
-@keyframes float {
-    0% {
-      transform: translateY(0);
-    }
-    50% {
-      transform: translateY(-10px); /* Adjust the distance to control the floating height */
-    }
-    100% {
-      transform: translateY(0);
-    }
+.weather-icon {
+    font-size: 2rem; /* Adjust size as needed */
+    transition: transform 0.3s ease-in-out;
   }
-  .section__inputs>button:hover{
-    cursor:pointer;
-    background-color: aliceblue;
-    border-radius: 2px;
+  
+  .weather-icon.temperature-icon {
+    color: #ff5722; /* Temperature icon color */
   }
-  .icon{
-    display:flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+  
+  .weather-icon.humidity-icon {
+    color: #2196f3; /* Humidity icon color */
   }
-.icon>h3{
-    font-size: 15px;
-    font-weight: 200;
-    text-transform: capitalize;
-}
-.temperature>h1{
-    font-size: 60px;
-}
-
-@media (max-width: 600px) {
-    .home-wrapper {
-        flex-direction: column; /* Stack sidebar and body vertically */
-    }
-
-    .container-sidebar {
-        height: auto;
-        margin-top: 100px;
-        width: 100%; /* Sidebar takes full width on small screens */
-        /* height: auto; Adjust height as needed */
-        order: 2; /* Ensure sidebar comes first */
-        flex-direction: row; /* Stack sidebar buttons horizontally */
-        align-items: center; /* Center buttons horizontally */
-        justify-content: space-around; /* Distribute space evenly */
-        z-index: 1000;
-      
-    }
-
-    .body {
-        width: 100%; /* Body takes full width */
-        height: auto; /* Adjust height as needed */
-        order: 1; /* Ensure body comes after sidebar */
-    }
-}
+  
+  .weather-icon.wind-icon {
+    color: #4caf50; /* Wind speed icon color */
+  }
+  
+  .weather-icon:hover {
+    transform: rotate(360deg); /* Rotate icon on hover */
+  }
+  
