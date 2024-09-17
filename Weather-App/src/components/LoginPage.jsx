@@ -204,7 +204,7 @@ const AuthForm = () => {
         <DialogTitle>Privacy and Data Protection</DialogTitle>
         <DialogContent>
           <Typography>
-            By using this application, you agree to the protection of your data and privacy. Please review our privacy policy to understand how we handle your information.
+            By using this application, you agree to the protection of your data and privacy. This application uses APIs to provide you with accurate and up-to-date weather information, including your current location for personalized forecasts. Your data is handled with the utmost care and in accordance with our privacy policy, ensuring that your information is used solely for enhancing your experience with the application. For a detailed understanding of how your data is protected and managed, please review our full privacy policy.
           </Typography>
         </DialogContent>
         <DialogActions>

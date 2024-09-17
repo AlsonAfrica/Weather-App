@@ -29,6 +29,8 @@ import { SketchPicker } from 'react-color';
 import { Line } from 'react-chartjs-2';
 import Chart from 'chart.js/auto'; // Automatically registers the necessary components
 import { FaUserAstronaut } from "react-icons/fa";
+import { CiLogout } from "react-icons/ci";
+import { Link } from 'react-router-dom';
 
 
 const CACHE_KEY = 'weatherData';
@@ -337,6 +339,9 @@ const HomePage = () => {
             <ListItemText primary="Change Theme" />
           </ListItem>
         </List>
+        <Link to="/">
+        <button style={{width:'100%'}} >Logout <CiLogout /></button>
+        </Link>
       </Drawer>
 
       <Dialog open={locationDialogOpen} onClose={handleLocationDialogClose}>
