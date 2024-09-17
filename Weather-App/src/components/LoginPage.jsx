@@ -151,6 +151,7 @@ const AuthForm = () => {
               variant="contained"
               color="primary"
               sx={{ mt: 3, mb: 2 }}
+              
             >
               {isRegistering ? 'Register' : 'Login'}
             </Button>
