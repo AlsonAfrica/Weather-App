@@ -37,6 +37,10 @@ The **Weather App** is designed to provide real-time weather information, foreca
 ![Static Badge](https://img.shields.io/badge/React-Router-red)
 ![Static Badge](https://img.shields.io/badge/axios-blue)
 
+# HomePage
+![image](https://github.com/user-attachments/assets/13e6b9b1-9fc7-47d5-aa52-73f08d04e576)
+
+
 ## Please follow the below stated steps to run the application in order
 1. Clone the repository:
 
