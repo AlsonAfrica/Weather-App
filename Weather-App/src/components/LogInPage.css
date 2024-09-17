@@ -40,10 +40,45 @@
 }
 .logo-app{
     padding-bottom: 20px;
+    font-size: 4rem;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    color:white;
 }
+
 .logo-text{
     padding-bottom: 20px;
     text-align: center;
+    font-size: 2rem;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    color:white;
+}
+/* .logo-app:hover{
+    color: black;
+}
+.logo-text:hover{
+    color:black;
+} */
+
+
+@media screen and (max-width:600px) {
+    .logo-app{
+        font-size: 2rem;
+    }
+    .logo-text{
+        font-size: 1rem;
+    }
+    
+}
+@media screen and (max-width:1024px){
+
+    .logo-app{
+        font-size: 2rem;
+        padding-bottom: 10px;
+    }
+    .logo-text{
+        font-size: 1rem;
+        padding-bottom: 10px;
+    }
 }
 /* h1{
  position: absolute;

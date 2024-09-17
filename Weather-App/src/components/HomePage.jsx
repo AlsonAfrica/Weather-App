@@ -28,6 +28,8 @@ import axios from 'axios';
 import { SketchPicker } from 'react-color';
 import { Line } from 'react-chartjs-2';
 import Chart from 'chart.js/auto'; // Automatically registers the necessary components
+import { FaUserAstronaut } from "react-icons/fa";
+
 
 const CACHE_KEY = 'weatherData';
 const CACHE_EXPIRY_TIME = 3600000; // 1 hour in milliseconds
@@ -323,6 +325,7 @@ const HomePage = () => {
       )}
 
       <Drawer anchor="left" open={drawerOpen} onClose={handleDrawerToggle}>
+      <DialogTitle>User Profile <FaUserAstronaut /> </DialogTitle>
         <List>
           <ListItem button onClick={handleLocationDialogOpen}>
             <ListItemText primary="Set Location" />

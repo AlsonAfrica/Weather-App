@@ -5,6 +5,7 @@ import './App.css'
 import AuthForm from './components/LoginPage'
 import Backgroundvideo from './components/videobg'
 import HomePage from './components/HomePage'
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 
 function App() {
@@ -12,10 +13,12 @@ function App() {
 
   return (
     <>
-       {/* <AuthForm/> */}
-       {/* <Backgroundvideo/> */}
-       <HomePage/>
-  
+    <Router>
+      <Routes>
+        <Route path="/" element={<Backgroundvideo/>}/>
+         <Route path="/HomePage" element={<HomePage/>}/>
+      </Routes>
+    </Router>
     </>
   )
 }

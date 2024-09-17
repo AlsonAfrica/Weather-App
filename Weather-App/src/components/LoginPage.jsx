@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import './LogInPage.css';
-import { TextField, Button, Typography, Container, Box, FormControl, InputLabel, InputAdornment, IconButton, Dialog, DialogTitle, DialogContent, DialogActions } from '@mui/material';
+import { TextField, Button, Typography, Container, Box, FormControl, InputLabel, InputAdornment, IconButton, Dialog, DialogTitle, DialogContent, DialogActions, CircularProgress } from '@mui/material';
 import Visibility from '@mui/icons-material/Visibility';
 import VisibilityOff from '@mui/icons-material/VisibilityOff';
+import { useNavigate } from 'react-router-dom';
 
 const AuthForm = () => {
   const [isRegistering, setIsRegistering] = useState(false);
@@ -14,9 +15,10 @@ const AuthForm = () => {
   });
   const [openDialog, setOpenDialog] = useState(false);
   const [acceptedTerms, setAcceptedTerms] = useState(false);
+  const [loading, setLoading] = useState(false); // Loader state
+  const navigate = useNavigate();
 
   useEffect(() => {
-   
     setOpenDialog(true);
   }, []);
 
@@ -37,17 +39,35 @@ const AuthForm = () => {
       setOpenDialog(true);
       return;
     }
-    if (isRegistering) {
-      if (formData.password !== formData.confirmPassword) {
-        alert('Passwords do not match!');
-        return;
+    
+    setLoading(true); // Show loader
+    setTimeout(() => { // Simulate an async operation
+      if (isRegistering) {
+        if (formData.password !== formData.confirmPassword) {
+          alert('Passwords do not match!');
+          setLoading(false); // Hide loader
+          return;
+        }
+        // Handle registration logic
+        localStorage.setItem('user', JSON.stringify({ username: formData.username, password: formData.password }));
+        alert('Registration successful!');
+        setFormData({
+          username: '',
+          password: '',
+          confirmPassword: ''
+        });
+      } else {
+        // Handle login logic
+        const storedUser = JSON.parse(localStorage.getItem('user'));
+        if (storedUser && storedUser.username === formData.username && storedUser.password === formData.password) {
+          alert('Login successful!');
+          navigate('/HomePage'); // Navigate to the HomePage after successful login
+        } else {
+          alert('Invalid credentials!');
+        }
       }
-      // Handle registration logic
-      console.log('Registering:', formData);
-    } else {
-      // Handle login logic
-      console.log('Logging in:', formData);
-    }
+      setLoading(false); // Hide loader
+    }, 2000); // Simulate a delay for demo purposes
   };
 
   const handleAcceptTerms = () => {
@@ -62,8 +82,8 @@ const AuthForm = () => {
 
   return (
     <div className='wrapper'>
-        <h1 className='logo-app'>Central 1: Weather App</h1>
-        <p className='logo-text'>Welcome to Central 1: Weather App, your ultimate weather companion designed to keep you informed and prepared, no matter where you are. Our app provides accurate and real-time weather information, tailored to your needs.</p>
+      <h1 className='logo-app'>Central 1: Weather App</h1>
+      <p className='logo-text'>Welcome to Central 1: Weather App, your ultimate weather companion designed to keep you informed and prepared, no matter where you are. Our app provides accurate and real-time weather information, tailored to your needs.</p>
       <Container component="main" maxWidth="xs">
         <Box
           sx={{
@@ -151,7 +171,6 @@ const AuthForm = () => {
               variant="contained"
               color="primary"
               sx={{ mt: 3, mb: 2 }}
-              
             >
               {isRegistering ? 'Register' : 'Login'}
             </Button>
@@ -162,6 +181,18 @@ const AuthForm = () => {
               {isRegistering ? 'Already have an account? Login' : 'Don’t have an account? Register'}
             </Button>
           </Box>
+          {loading && (
+            <Box
+              sx={{
+                display: 'flex',
+                justifyContent: 'center',
+                alignItems: 'center',
+                height: '100px',
+              }}
+            >
+              <CircularProgress />
+            </Box>
+          )}
         </Box>
       </Container>
 
