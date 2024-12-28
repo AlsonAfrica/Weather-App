@@ -50,9 +50,11 @@ The **Weather App** is designed to provide real-time weather information, foreca
    npm install
    
    cd: weather-app
+   
+   start Project: npm run dev
 
-# Project Progress
-Most of the app functionalities are not yet working, the developer is still working on improving the app
+# License
+This project is licensed under the MIT License - see the LICENSE file for details.
    
  
 
