@@ -339,9 +339,9 @@ const HomePage = () => {
             <ListItemText primary="Change Theme" />
           </ListItem>
         </List>
-        <Link to="/">
+        {/* <Link to="/">
         <button style={{width:'100%'}} >Logout <CiLogout /></button>
-        </Link>
+        </Link> */}
       </Drawer>
 
       <Dialog open={locationDialogOpen} onClose={handleLocationDialogClose}>

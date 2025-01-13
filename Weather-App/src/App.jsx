@@ -15,8 +15,8 @@ function App() {
     <>
     <Router>
       <Routes>
-        <Route path="/" element={<Backgroundvideo/>}/>
-         <Route path="/HomePage" element={<HomePage/>}/>
+        {/* <Route path="/" element={<Backgroundvideo/>}/> */}
+         <Route path="/" element={<HomePage/>}/>
       </Routes>
     </Router>
     </>
